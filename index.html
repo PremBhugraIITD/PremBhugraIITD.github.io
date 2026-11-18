@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ShieldCore Systems — Security and telemetry for Apple Silicon</title>
+  <meta name="description" content="ShieldCore Systems builds native macOS software: Glass Shield, a session-level screen lock, and SiliconSense, live Apple Silicon hardware telemetry.">
+  <meta name="theme-color" content="#0D0E11">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav" data-nav>
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="ShieldCore Systems, home">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M16 3.2 27 7.4v8.4c0 6.6-4.4 10.4-11 12-6.6-1.6-11-5.4-11-12V7.4L16 3.2z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M11.5 16.2 14.4 19.1 20.6 12.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>ShieldCore Systems</span>
+      </a>
+      <button class="menu" type="button" aria-expanded="false" aria-controls="site-links">
+        <span class="sr">Menu</span>
+        <span></span><span></span>
+      </button>
+      <nav id="site-links" class="links" aria-label="Primary">
+        <a href="#products">Products</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-small" href="#contact">Get Early Access</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span> macOS · Apple Silicon</p>
+        <h1>Kernel-Level Security &amp; Hardware Telemetry for Apple Silicon</h1>
+        <p class="lede">Native Mac software that covers the session and reads the hardware underneath it. Glass Shield and SiliconSense stay on the machine.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#contact">Get Early Access</a>
+          <a class="btn btn-ghost" href="#products">View products</a>
+        </div>
+      </div>
+
+      <article class="preview" aria-label="Interactive product preview">
+        <div class="chrome">
+          <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="chrome-title">ShieldCore</span>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Preview">
+          <button id="tab-shield" type="button" role="tab" aria-selected="true" aria-controls="panel-shield">Glass Shield</button>
+          <button id="tab-sense" type="button" role="tab" aria-selected="false" aria-controls="panel-sense" tabindex="-1">SiliconSense</button>
+        </div>
+
+        <div id="panel-shield" class="panel" role="tabpanel" aria-labelledby="tab-shield" data-state="covered">
+          <div class="shield-stage">
+            <div class="shield-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64">
+                <path d="M32 6 54 14.5v16.8C54 46 44.2 54.2 32 58 19.8 54.2 10 46 10 31.3V14.5L32 6z"/>
+              </svg>
+            </div>
+            <p class="state-label" data-state-label>Cover armed</p>
+            <p class="state-note" data-state-note>Input is held at the session. Unlock asks for Touch ID or the Mac password.</p>
+          </div>
+          <ul class="checks">
+            <li><span class="tick" aria-hidden="true"></span> Session-level input block</li>
+            <li><span class="tick" aria-hidden="true"></span> Touch ID / LAContext</li>
+            <li><span class="tick amber" aria-hidden="true"></span> Hardware tripwire</li>
+          </ul>
+          <button class="btn btn-ghost btn-block" type="button" data-toggle-cover>Toggle cover</button>
+        </div>
+
+        <div id="panel-sense" class="panel" role="tabpanel" aria-labelledby="tab-sense" hidden>
+          <p class="sense-kicker">Illustrative preview · not a live reading</p>
+          <ul class="meters">
+            <li><span>CPU</span><b data-meter="cpu">18%</b><i data-bar="cpu"></i></li>
+            <li><span>GPU</span><b data-meter="gpu">11%</b><i data-bar="gpu"></i></li>
+            <li><span>Hinge</span><b data-meter="hinge">112°</b><i data-bar="hinge"></i></li>
+            <li><span>Force</span><b data-meter="force">0</b><i data-bar="force"></i></li>
+            <li><span>Chassis</span><b data-meter="temp">36°C</b><i data-bar="temp"></i></li>
+            <li><span>Tilt</span><b data-meter="tilt">1.2°</b><i data-bar="tilt"></i></li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="products">
+      <div class="section-head">
+        <h2>Products</h2>
+        <p>Two flagship Mac apps. One covers the session. The other reports the hardware.</p>
+      </div>
+      <div class="product-grid">
+        <article class="card product">
+          <p class="kicker">01 · Screen lock</p>
+          <h3>Glass Shield</h3>
+          <p>A view-only macOS screen lock. A session-level CGEvent tap blocks input, Touch ID and LAContext confirm the owner, and a hardware tripwire keeps the cover in place.</p>
+          <ul>
+            <li>Covers every connected display</li>
+            <li>Owner authentication through LocalAuthentication</li>
+            <li>Works with no network connection</li>
+          </ul>
+        </article>
+        <article class="card product">
+          <p class="kicker">02 · Hardware telemetry</p>
+          <h3>SiliconSense</h3>
+          <p>Native macOS desktop widgets. Live Apple Silicon CPU and GPU load, hinge angle, trackpad force, chassis temperature, and tilt, read through IOKit.</p>
+          <ul>
+            <li>Readings stay on the Mac</li>
+            <li>Native WidgetKit surfaces</li>
+            <li>Built for Apple Silicon hardware</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="architecture">
+      <div class="section-head">
+        <h2>Architecture</h2>
+        <p>Small native programs, compiled for the Mac they run on.</p>
+      </div>
+      <div class="arch-grid">
+        <article class="card">
+          <h3>100% Offline Privacy</h3>
+          <p>Glass Shield and SiliconSense do not open a network connection. Telemetry, authentication, and the screen cover all stay on the Mac.</p>
+        </article>
+        <article class="card">
+          <h3>Native Swift &amp; C Performance</h3>
+          <p>The apps are compiled Swift and C. They are Mac processes, not a browser shell wrapped around a remote page.</p>
+        </article>
+        <article class="card">
+          <h3>Hardened Binary Protection</h3>
+          <p>What ships is a signed application. Control values are compiled into each build instead of being published beside it.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="contact-copy">
+        <h2>Early access</h2>
+        <p>Tell us which app you want to try. The form opens your mail app with a message addressed to ShieldCore.</p>
+        <p class="email-row">
+          <a href="mailto:prem@shieldcore.me">prem@shieldcore.me</a>
+          <button class="btn btn-ghost btn-small" type="button" data-copy-email>Copy Email</button>
+        </p>
+        <p class="copy-status" data-copy-status role="status"></p>
+      </div>
+      <form class="card form" id="access-form" novalidate>
+        <label>Name
+          <input name="name" type="text" autocomplete="name" required>
+        </label>
+        <label>Email
+          <input name="email" type="email" autocomplete="email" required>
+        </label>
+        <label>Interest
+          <select name="interest" required>
+            <option value="Glass Shield">Glass Shield</option>
+            <option value="SiliconSense">SiliconSense</option>
+            <option value="Both">Both</option>
+          </select>
+        </label>
+        <label>Note
+          <textarea name="message" rows="4" required placeholder="What should we know?"></textarea>
+        </label>
+        <button class="btn" type="submit">Request access</button>
+        <p class="form-status" data-form-status role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 ShieldCore Systems</p>
+    <p><a href="mailto:prem@shieldcore.me">prem@shieldcore.me</a></p>
+    <p><a href="https://github.com/PremBhugraIITD">GitHub</a></p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
